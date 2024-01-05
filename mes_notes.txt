@@ -1,0 +1,28 @@
+COMMANDES DEBIAN
+touch
+open
+ls
+pwd
+man
+cp
+mv
+rm
+cd
+clear
+mkdir
+iwconfig
+ipconfig
+sudo su
+whoami
+msfconsole
+mfvenom
+
+
+
+apt install
+apt-get install
+
+INSTALLATION DES OUTILS INVITER VBOX
+	//cela permettra la fonctionnalite bidirectionnelle et l'affichage en plein ecran de la VM (copie-coller)
+		apt install virtualbox-guest-utils
+		apt install virtualbox-guest-x11
