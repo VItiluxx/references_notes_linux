@@ -27,3 +27,11 @@ INSTALLATION DES OUTILS INVITER-VIRTUALBOX
 	//cela permettra la fonctionnalite bidirectionnelle et l'affichage en plein ecran de la VM (copie-coller des fichiers etc...)
 		apt install virtualbox-guest-utils
 		apt install virtualbox-guest-x11
+======================================================================================================================================================================
+INSTALLATIONS COMMANDES
+======================================================================================================================================================================
+Fichiers .tar, .tar.gz, .tar.bz2, etc. : La commande tar -xvf est utilisée pour extraire ces archives.
+	tar -xvf fichier.tar.gz
+
+Fichiers .deb : Les fichiers .deb sont des paquets Debian, et pour les installer, il faut utiliser dpkg ou apt au lieu de tar
+	sudo dpkg -i fichier.deb
