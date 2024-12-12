@@ -35,3 +35,78 @@ Fichiers .tar, .tar.gz, .tar.bz2, etc. : La commande tar -xvf est utilisée pour
 
 Fichiers .deb : Les fichiers .deb sont des paquets Debian, et pour les installer, il faut utiliser dpkg ou apt au lieu de tar
 	sudo dpkg -i fichier.deb
+
+
+======================================================================================================================================================================
+COMMANDES Nmap pour le scan
+======================================================================================================================================================================
+Commande : nmap <cible>
+Description : Effectue un scan des 1000 ports les plus courants sur la cible.
+
+Options de cibles
+	IP unique : nmap 192.168.1.1
+	Plage IP : nmap 192.168.1.1-100
+	Sous-réseau : nmap 192.168.1.0/24
+	Hôte multiple : nmap 192.168.1.1 192.168.1.2
+	Fichier d'hôtes : nmap -iL <fichier>
+
+Types de scan
+	Scan TCP Connect : nmap -sT
+	Utilise une connexion complète TCP (lente, mais fiable).
+	Scan SYN : nmap -sS
+	Scan rapide en envoyant des paquets SYN (demi-connexion).
+	Scan UDP : nmap -sU
+	Scanne les ports UDP.
+	Scan combiné TCP/UDP : nmap -sS -sU
+	Scan ping : nmap -sP
+	Vérifie uniquement si les hôtes sont actifs.
+	Scan agressif : nmap -A
+	Combine la détection OS, les versions, et les scripts.
+
+Ports
+	Port unique : nmap -p 80
+	Plage : nmap -p 20-80
+	Tous les ports : nmap -p-
+	Ports spécifiques + protocole : nmap -p U:53,T:80
+
+Détection OS et version
+	Détection d'OS : nmap -O
+	Identifie le système d'exploitation.
+	Détection de versions : nmap -sV
+	Identifie les versions des services.
+
+Scripts NSE (Nmap Scripting Engine)
+	Utiliser un script : nmap --script <nom_script>
+	Scripts multiples : nmap --script <script1>,<script2>
+	Tous les scripts d’une catégorie : nmap --script <catégorie>
+	Exemple : nmap --script vuln (vulnérabilités connues).
+
+Contournement des pare-feu
+	Changer le port source : nmap --source-port <port>
+	Scan fragmenté : nmap -f
+	Divise les paquets pour éviter la détection.
+	Utilisation d’un proxy : nmap --proxies <proxy>
+
+ Mode verbeux
+	Ajouter des détails : nmap -v
+	Encore plus détaillé : nmap -vv
+
+Enregistrement des résultats
+	Fichier texte : nmap -oN <fichier>
+	Fichier XML : nmap -oX <fichier>
+	Tous les formats : nmap -oA <prefixe>
+
+Autres options importantes
+	Scan furtif FIN : nmap -sF
+	Utilise un paquet FIN pour contourner certains pare-feux.
+	Scan sans ping : nmap -Pn
+	Ignore les tests d’accessibilité avant le scan.
+	Limiter la vitesse : nmap --max-rate <paquets/seconde>
+	Scan par adresse MAC : nmap -e <interface>
+	Change l’interface réseau utilisée.
+
+nmap -sS -p 80,443 -A -O --script vuln -oN result.txt 192.168.1.0/24
+	Scan SYN
+	Ports 80 et 443
+	Détection OS, version, et scripts de vulnérabilité
+	Résultat sauvegardé dans result.txt.
